@@ -11,10 +11,14 @@ end
 
 post '/begin' do
 	@person = Person.new(params[:name])
-	@object = Yoyo.new
-	session[:yoyo]= @object
+	@weapons = Weapons.new
+	session[:weapons]= @weapons
 	session[:person]= @person
 		erb :begin, :layout => :layout
+end
+
+get '/begin' do
+	erb :begin, :layout => :layout
 end
 
 get '/sword_room' do
@@ -42,7 +46,7 @@ get '/fight_goblin' do
 end
 
 get '/pick_up_rope' do
-	session[:person].pick_up(session[:yoyo].objects_list[0][:name])
+	session[:person].pick_up(session[:weapons].objects_list[0][:name])
 	erb :rope_room, :layout => :layout
 end
 
@@ -51,7 +55,7 @@ get '/falling' do
 end
 
 
-class Yoyo
+class Weapons
 	attr_reader :objects_list
 	def initialize
 		@objects_list = [{name: "rope", power: 20},
@@ -70,18 +74,14 @@ class Person
 	def initialize(name)
 		@name = name
 		@objects ||= []
-	
-
 	end
 
 	def pick_up object
 		objects << object
-
 	end
 
 	def has_objects
 		objects.count >= 1
 	end
-
 
 end

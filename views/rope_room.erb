@@ -5,6 +5,12 @@
 	<img id = "rope" src = "assets/images/rope.gif">
 </a>
 
+<div class="arrow_ahead">
+
+	<a href="/begin"><img id='rotate_down' src='assets/images/red_arrow_up.png' width='70px'></a>
+
+</div>
+
 <% if session[:person].has_objects %>
-<p class='congratulations'>Congratulations, you have just picked up one <%= session[:yoyo].objects_list[0][:name] %></p>
+<p class='congratulations'>Congratulations, you have just picked up one <%= session[:weapons].objects_list[0][:name] %></p>
 <% end %>
