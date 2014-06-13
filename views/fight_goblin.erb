@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Dungeon</title>
+	<link rel='stylesheet' href='css/styles.css'>
+
+	<style type="text/css">
+		body {
+	background: url(../assets/images/goblin_room.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	background-attachment: fixed;
+	}
+	</style>
+
+</head>
+<body>
+	<h1>Fight the Goblin!</h1>
+
+	<%= session[:person].total_power %>
+
+	<% if session[:person].total_power == 20 %>
+		<h2>Congratulations, you defeated the goblin!</h2>
+		<h2>And you found a shield!</h2>
+		<a href="/pick_up_shield"><img id="img-goblin" src="assets/images/shield.png"></a>
+
+	<% else %>
+		<h2>Oh, no!</h2>
+		<h2>You didn't have enough weapons. You are dead!</h2>
+		<img id="img-goblin" src="assets/images/bubblegum-dead-png.png">
+
+	<% end %>
+
+</body>
+</html>

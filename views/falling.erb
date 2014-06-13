@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Dungeon</title>
+	<link rel='stylesheet' href='css/styles.css'>
+
+	<style type="text/css">
+		body {
+	background: url(../assets/images/man-falling.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	background-attachment: fixed;
+	}
+	</style>
+
+</head>
+<body>
+
+	<h1>Are you crazy? Who jumps out from a window?</h1>
+
+	<% if session[:person].objects.include? "rope" %>
+		<h2>Fortunately you've picked up a rope, do you want to use it?</h2>
+
+		<a href="/goblin_room"><img id="falling-rope" src="assets/images/rope.gif"></a>
+	<% else %>
+	<h1> YOU ARE DEAD! </h1>
+	<% end %>
+
+</body>
+</html>
