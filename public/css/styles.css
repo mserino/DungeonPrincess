@@ -94,11 +94,19 @@ input {
 }
 
 .window-div {
-	background-color: #ffffff;
+/*	background-color: #ffffff; */
 	width:200px;
-	height:200px;
+	height:500px;
 	right:150px;
 	top: 250px;
 	display:block;
 	position:fixed;
+}
+
+#shield {
+	bottom: 50%;
+	left: 50%;
+/*	display: block;
+	position: relative;*/
+	width: 25%;
 }

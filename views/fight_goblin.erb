@@ -17,12 +17,11 @@
 <body>
 	<h1>Fight the Goblin!</h1>
 
-	<%= session[:person].total_power %>
-
-	<% if session[:person].total_power == 20 %>
+	<% if session[:person].total_power >= 25 %>
 		<h2>Congratulations, you defeated the goblin!</h2>
 		<h2>And you found a shield!</h2>
-		<a href="/pick_up_shield"><img id="img-goblin" src="assets/images/shield.png"></a>
+		
+		<a href="/pick_up_shield"><img id="shield" src="assets/images/shield.png"></a>
 
 	<% else %>
 		<h2>Oh, no!</h2>
@@ -30,6 +29,11 @@
 		<img id="img-goblin" src="assets/images/bubblegum-dead-png.png">
 
 	<% end %>
+
+	<% if session[:person].weapons.has_objects session[:weapons].objects_list[2][:name] %>
+<p class='congratulations'>Congratulations, you have just picked up one <%= session[:weapons].objects_list[2][:name] %></p>
+<% end %>
+
 
 </body>
 </html>
